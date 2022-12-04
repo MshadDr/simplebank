@@ -1,0 +1,20 @@
+FROM golang:1.19
+
+# RUN apk add --no-cache git
+
+RUN mkdir /app
+ADD . /app
+WORKDIR /app 
+
+RUN go mod download
+
+COPY . .
+
+RUN go build -o /banking_app
+
+# EXPOSE 8001
+
+# CMD [ "sleep", "1000000000000000" ]
+# CMD [ "go", "run", "main.go" ]
+# CMD [ "/banking_app" ]
+ENTRYPOINT /banking_app --port 8001

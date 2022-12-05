@@ -1,0 +1,6 @@
+run_test:
+  image: golang:latest
+  before_script:
+    - apt-get update && apt-get Install make
+  script:
+    - make test

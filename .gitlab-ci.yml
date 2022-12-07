@@ -16,7 +16,7 @@ run_test:
     - postgres:latest
   
   variables:
-          DATABASE_URL: postgres://root@root:5432/simple_database
+          DATABASE_URL: localhost://root@root:5432/simple_database
   
   script:
     - apt-get update

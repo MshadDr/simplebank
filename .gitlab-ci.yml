@@ -16,10 +16,7 @@ run_test:
     - postgres:latest
   
   variables:
-          POSTGRES_PASSWORD: root
-          POSTGRES_USER: root
-          POSTGRES_DB: simple_database
-          POSTGRES_PORT: 5432
+    DATABASE_URL: postgres://postgres@postgres:5432/simple_database
   
   script:
     - apt-get update

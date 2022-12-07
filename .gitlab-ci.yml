@@ -20,6 +20,7 @@ run_test:
           POSTGRES_PASSWORD: root
           POSTGRES_USER: root
           POSTGRES_DB: simple_database
+          POSTGRES_PORT: 5432
   
   script:
     - apt-get update

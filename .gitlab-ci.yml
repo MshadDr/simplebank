@@ -16,7 +16,11 @@ run_test:
     - postgres:latest
   
   variables:
-          DATABASE_URL: localhost://root@root:5432/simple_database
+          POSTGRES_HOST: postgresql
+          POSTGRES_PASSWORD: root
+          POSTGRES_USER: root
+          POSTGRES_DB: simple_database
+          POSTGRES_PORT: 5432
   
   script:
     - apt-get update

@@ -1,6 +1,28 @@
+variables:
+  IMAGE_NAME: Mshad/simplebank
+  IMAGE_TAG: simpleBank-app-1.0.1
+
+stages:
+  - test
+  - build
+
 run_test:
+  stage: test
+  only:
+    - develop
   image: golang:latest
-  before_script:
-    - apt-get update && apt-get Install make
+  services:
+    - docker:dind
+    - postgres:latest
+  
+  variables:
+          POSTGRES_PASSWORD: root
+          POSTGRES_USER: root
+          POSTGRES_DB: simple_database
   script:
+    - apt-get update
+    - curl -L https://github.com/golang-migrate/migrate/releases/download/v4.15.2/migrate.linux-amd64.tar.gz | tar xvz
+    - sudo mv migrate /usr/bin/migrate
+    - which migrate 
+    - make migrateup
     - make test

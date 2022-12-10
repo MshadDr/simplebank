@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 	"testing"
-
 	_ "github.com/lib/pq"
 )
 
@@ -14,7 +13,7 @@ var testDB *sql.DB
 
 const (
 	dbDriver = "postgres"
-	dbSource = "postgresql://root:root@postgres:5432/simple_database?sslmode=disable"
+	dbSource = "postgresql://root:root@localhost:5432/simple_database?sslmode=disable"
 )
 
 func TestMain(m *testing.M) {

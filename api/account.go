@@ -16,7 +16,7 @@ import (
 
 type CreateAccountRequest struct {
 	Owner string `json:"owner" binding:"required"`
-	Currency string `json:"currency" binding:"required,oneof=USD EUR"`
+	Currency string `json:"currency" binding:"required,currency"`
 }
 
 // create a new account

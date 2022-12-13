@@ -9,18 +9,22 @@ import (
 	"context"
 )
 
+/* 👇 sqlc query example👇 */
 const addAccountBalance = `-- name: AddAccountBalance :one
 UPDATE accounts
   set balance = balance + $1
 WHERE id = $2
 RETURNING id, owner, balance, currency, created_at
 `
+/* 👆 sqlc query example👆 */
+
 
 type AddAccountBalanceParams struct {
 	Amount int64 `json:"amount"`
 	ID     int64 `json:"id"`
 }
 
+/* method of the Queries object */
 func (q *Queries) AddAccountBalance(ctx context.Context, arg AddAccountBalanceParams) (Account, error) {
 	row := q.db.QueryRowContext(ctx, addAccountBalance, arg.Amount, arg.ID)
 	var i Account

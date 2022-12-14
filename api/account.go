@@ -10,7 +10,6 @@ import (
 	"database/sql"
 	"net/http"
 	database "simplebank/database/sqlc"
-
 	"github.com/gin-gonic/gin"
 	"github.com/lib/pq"
 )
